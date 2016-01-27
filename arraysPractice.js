@@ -104,7 +104,7 @@ var numbers = [0,3,4,5,6,7,9,14,17,24,25,26,29,30];
 //Your job is to write a function named finder that will get a random number, then loop through the array to see if that random number is in the array. 
 //If it is, return true, if it's not, return false
 
- 
+ //Could use indexOf === -1 here as well!
 function finder(nums) {
     var random = getRandomArbitrary();
     for (var i = 0; i < nums.length; i++) {
@@ -150,7 +150,17 @@ var myGroceryList = ['chips', 'pizza', 'hotpockets', 'MtnDew', 'corndogs'];
   myGroceryList then return the new, updated grocery list.
 */
 
-  //Code Here
+  function removeItem(myGroceryList, itemToRemove) {
+    var itemno = myGroceryList.indexOf(itemToRemove);
+    if (itemno !== -1) {
+      myGroceryList.splice(itemno, 1);
+    }
+    return myGroceryList;
+  }
+
+  function addItem(myGroceryList, itemToAdd) {
+    myGroceryList.push(itemToAdd);
+  }
 
 //removeItem(myGroceryList, 'chips') --> ['pizza', 'hotpockets', 'MtnDew', 'corndogs'];
 //addItem(myGroceryList, 'Jerky') --> ['pizza', 'hotpockets', 'MtnDew', 'corndogs', 'Jerky'];
@@ -163,8 +173,15 @@ var myGroceryList = ['chips', 'pizza', 'hotpockets', 'MtnDew', 'corndogs'];
 
 //Write a function called maker that creates an array, fills that array with numbers from 1 to 215, then returns the array.
 
-  //Code Here
+ function maker() {
+    var newArr = [];
+    for (var i = 1; i <= 215; i++) {
+      newArr.push(i);
+    }
+    return newArr;
+  }
 
+maker();
 
 
 //Next Problem
@@ -223,14 +240,16 @@ for(var i = 0; i < num2; i++){
   'both' should return a new array full of numbers that are found in both arr1 and arr2.
 */
 
-  //Code Here
+  function both(arr1, arr2) {
+    var newArr = [];
+    newArr.push(arr1, arr2);
+    return newArr;
+  }
   
   
   
 
 //NEXT PROBLEM
-
-
 
 
 var devMountainEmployees = [];
@@ -263,13 +282,27 @@ var colt = {
 array with those four objects. After that console.log the length of the Array and make
 sure that it's equal to 4. */
 
-  //Code Here
+
+devMountainEmployees.push(tyler, cahlan, ryan, colt);
+console.log(devMountainEmployees.length);
 
 /*Now let's say Cahlan has a mental breakdown and has to take a leave of absence to 'find himself'.
 Loop through your devMountainEmployees until you find cahlan, then remove him from the array.*/
 
-  //Code Here
+devMountainEmployees.push(tyler, cahlan, ryan, colt);
 
+   function looper(arr) {
+    for (var i = 0; i < arr.length; i++){
+      if(arr[i].name.toLowerCase() === "cahlan") {
+        arr.splice(i, 1);
+        break;
+      }
+
+    }
+    return arr;
+  }
+
+looper(devMountainEmployees);
 
 
 
